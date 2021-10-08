@@ -17,8 +17,16 @@ public class RegularPolygon extends Shape{
      * @param r radius (sets to 0.0 if this argument is less than 0.0)
     */
     public RegularPolygon(int n, double r){
-        this.radius = r;
-        this.numOfSides = n;
+        if(r >= 0.0)
+            this.radius = r;
+        else
+            this.radius = 0.0;
+        
+        if(n >= 3)
+            this.numOfSides = n;
+        else
+            this.numOfSides = 3;
+
         this.setVertices();
     }
 
@@ -28,7 +36,12 @@ public class RegularPolygon extends Shape{
     */
     public RegularPolygon(int n){
         this.radius = 1.0;
-        this.numOfSides = n;
+
+        if(n >= 3)
+            this.numOfSides = n;
+        else
+            this.numOfSides = 3;
+
         this.setVertices();
     }
 

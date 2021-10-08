@@ -1,5 +1,4 @@
 import java.awt.Color;
-import java.lang.Math;
 
 /** 
 * This class is used to model general shapes. This class should be inherited by other subclasses to be functional.
