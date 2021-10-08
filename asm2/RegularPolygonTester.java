@@ -54,7 +54,7 @@ public class RegularPolygonTester {
         //Test contain method
         System.out.println("Testing contain method : ");
         RegularPolygon test6 = new RegularPolygon(4,1.0);
-        test6.setTheta(Math.PI/2);
+        test6.setTheta(Math.PI/4);
         test6.setXc(1.0);
         test6.setYc(2.0);
         double xIn = 1.0, yIn = 2.0;
