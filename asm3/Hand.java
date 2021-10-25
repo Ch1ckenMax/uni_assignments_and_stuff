@@ -66,7 +66,18 @@ public abstract class Hand extends CardList{
             return false;
     }
 
-    //Abstract Methods
+    //Abstract methods
+    /**
+     * Checks if the hand is valid
+     * 
+     * @return True if valid, False otherwise
+     */
     public abstract boolean isValid();
+
+    /**
+     * Returns the type of the hand (i.e. the class name)
+     * 
+     * @return The type of hand
+     */
     public abstract String getType();
 }
