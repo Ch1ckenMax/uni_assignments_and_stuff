@@ -1,46 +1,42 @@
+/**
+ * Models a hand of quad in a Big Two card game.
+ * 
+ * @author Li Hoi Kit
+ */
 public class Quad extends Hand{
-    //Constructor
+    /**
+     * Builds a hand of quad with the specified player and list of cards
+     * 
+     * @param player The specified player
+     * @param cards The list of cards
+     */
     public Quad(CardGamePlayer player, CardList cards){
         super(player, cards);
-        sort();
     }
 
-    public boolean isValid(){ //SIMPLER APPROACH???
+    /**
+     * Checks if the hand is valid
+     * 
+     * @return True if valid, False otherwise
+     */
+    public boolean isValid(){
         if(size() != 5)
             return false;
 
-        int rankOfFirstCard = getCard(0).getRank();
-        int rankOfSecondCard = getCard(1).getRank();
-        int numOfCards = 2;
-        
-        if(rankOfFirstCard == rankOfSecondCard){
-            for(int i = 2; i < 5; i++){
-                if(rankOfFirstCard == getCard(i).getRank())
-                    numOfCards++;
-            }
+        boolean oneAndFour = getCard(0).getRank() == getCard(1).getRank() && getCard(1).getRank() == getCard(2).getRank() && getCard(2).getRank() == getCard(3).getRank() && getCard(3).getRank() != getCard(4).getRank();
+        boolean fourAndOne = getCard(0).getRank() != getCard(1).getRank() && getCard(1).getRank() == getCard(2).getRank() && getCard(2).getRank() == getCard(3).getRank() && getCard(3).getRank() == getCard(4).getRank();
+        if(oneAndFour || fourAndOne)
+            return true;
+        else
+            return false;
 
-            if(numOfCards == 4)
-                return true;
-            else
-                return false;
-        }
-        else{
-            int rankOfThirdCard = getCard(2).getRank();
-            if(rankOfFirstCard == rankOfThirdCard || rankOfSecondCard == rankOfThirdCard){
-                for(int i = 3; i < 5; i++){
-                    if(rankOfThirdCard == getCard(i).getRank())
-                        numOfCards++;
-                }
-                if(numOfCards == 4)
-                    return true;
-                else
-                    return false;
-            }else{
-                return false;
-            }
-        }
     }
 
+    /**
+     * Getter method for retrieving the top card of this hand
+     * 
+     * @return The top card of this hand
+     */
     public Card getTopCard(){
         if(getCard(0).getRank() != getCard(1).getRank())
             return getCard(4);
@@ -48,10 +44,21 @@ public class Quad extends Hand{
             return getCard(3);
     }
     
+    /**
+     * Returns the type of the hand (i.e. the class name)
+     * 
+     * @return The type of hand
+     */
     public String getType(){
         return "Quad";
     }
     
+    /**
+     * Checks if this hand beats a specified hand
+     * 
+     * @param hand The specified hand
+     * @return True if beats, false otherwise
+     */
     public boolean beats(Hand hand){
         if(hand.size() != this.size())
             return false;

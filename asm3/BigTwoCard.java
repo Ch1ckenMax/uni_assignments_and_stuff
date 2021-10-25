@@ -45,7 +45,12 @@ public class BigTwoCard extends Card{
 		}
     }
 
-    //This function translate the orignal rank order to BigTwo order
+    /**
+	 * Translates the rank of the card from original order to BigTwo order
+	 * 
+	 * @param rank The rank of the card in original order
+	 * @return The rank of the card in BigTwo order
+	 */
     public static int rankOrderToBigTwo(int rank){
         if(rank >= 2 && rank <= 12)
             return (rank - 2);

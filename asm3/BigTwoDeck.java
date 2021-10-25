@@ -6,7 +6,7 @@
 public class BigTwoDeck extends Deck{
 
     /**
-     * Initializes the deck of cards (called implicitly inside the superclass's constructor).
+     * Initializes the deck of BigTwo cards (called implicitly inside the superclass's constructor).
     */
     public void initialize(){
         removeAllCards();
